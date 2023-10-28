@@ -15,7 +15,8 @@
             const status = document.querySelector("h1");
             const success = (position) => {
                 console.log(position);
-                status.innerHTML = position.coords.latitude + "<br>" + position.coords.longitude;
+                status.innerHTML = "latidude: " + position.coords.latitude + "<br>longitude: " + position.coords.longitude;
+
                 // Define the range of latitude and longitude
                 const latMin = position.coords.latitude - 0.01; // Subtract 0.01 to create a margin of error
                 const latMax = position.coords.latitude + 0.01; // Add 0.01 to create a margin of error
@@ -24,10 +25,10 @@
                 // Check if the student's coordinates are within the range
                 if (position.coords.latitude >= latMin && position.coords.latitude <= latMax && position.coords.longitude >= lonMin && position.coords.longitude <= lonMax) {
                     // If yes, display a message
-                    status.innerHTML += "<br>You are within the area.";
+                    status.innerHTML += "<br>You are within that area.";
                 } else {
                     // If no, display another message
-                    status.innerHTML += "<br>You are outside the area.";
+                    status.innerHTML += "<br>You are outside that area.";
                 }
             };
             const error = () => {
@@ -43,7 +44,8 @@
             const status = document.querySelector("h1");
             const success = (position) => {
                 console.log(position);
-                status.innerHTML = position.coords.latitude + "<br>" + position.coords.longitude;
+                status.innerHTML = "latidude: 14.387761" + "<br>longitude: 121.047832";
+
                 // Define the range of latitude and longitude
                 const latMin = 14.387761 - 0.01; // Subtract 0.01 to create a margin of error
                 const latMax = 14.387761 + 0.01; // Add 0.01 to create a margin of error
@@ -52,10 +54,10 @@
                 // Check if the student's coordinates are within the range
                 if (position.coords.latitude >= latMin && position.coords.latitude <= latMax && position.coords.longitude >= lonMin && position.coords.longitude <= lonMax) {
                     // If yes, display a message
-                    status.innerHTML += "<br>You are within the area.";
+                    status.innerHTML += "<br>You are within that area.";
                 } else {
                     // If no, display another message
-                    status.innerHTML += "<br>You are outside the area.";
+                    status.innerHTML += "<br>You are outside that area.";
                 }
             };
             const error = () => {
