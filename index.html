@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>doc</title>
+</head>
+<body>
+    <button id="btn1">Own Location</button>
+    <button id="btn2">School Location</button>
+    <h1 class="status"></h1>
+
+    <script>
+        const btn1 = () => {
+            const status = document.querySelector("h1");
+            const success = (position) => {
+                console.log(position);
+                status.innerHTML = position.coords.latitude + "<br>" + position.coords.longitude;
+                // Define the range of latitude and longitude
+                const latMin = position.coords.latitude - 0.01; // Subtract 0.01 to create a margin of error
+                const latMax = position.coords.latitude + 0.01; // Add 0.01 to create a margin of error
+                const lonMin = position.coords.longitude - 0.01; // Subtract 0.01 to create a margin of error
+                const lonMax = position.coords.longitude + 0.01; // Add 0.01 to create a margin of error
+                // Check if the student's coordinates are within the range
+                if (position.coords.latitude >= latMin && position.coords.latitude <= latMax && position.coords.longitude >= lonMin && position.coords.longitude <= lonMax) {
+                    // If yes, display a message
+                    status.innerHTML += "<br>You are within the area.";
+                } else {
+                    // If no, display another message
+                    status.innerHTML += "<br>You are outside the area.";
+                }
+            };
+            const error = () => {
+                status.textContent = "Error occured";
+            };
+            navigator.geolocation.getCurrentPosition(success, error);
+        }
+
+        document.querySelector("#btn1").addEventListener("click", btn1);
+        
+        const btn2 = () => {
+            const status = document.querySelector("h1");
+            const success = (position) => {
+                console.log(position);
+                status.innerHTML = position.coords.latitude + "<br>" + position.coords.longitude;
+                // Define the range of latitude and longitude
+                const latMin = 14.387761 - 0.01; // Subtract 0.01 to create a margin of error
+                const latMax = 14.387761 + 0.01; // Add 0.01 to create a margin of error
+                const lonMin = 121.047832 - 0.01; // Subtract 0.01 to create a margin of error
+                const lonMax = 121.047832 + 0.01; // Add 0.01 to create a margin of error
+                // Check if the student's coordinates are within the range
+                if (position.coords.latitude >= latMin && position.coords.latitude <= latMax && position.coords.longitude >= lonMin && position.coords.longitude <= lonMax) {
+                    // If yes, display a message
+                    status.innerHTML += "<br>You are within the area.";
+                } else {
+                    // If no, display another message
+                    status.innerHTML += "<br>You are outside the area.";
+                }
+            };
+            const error = () => {
+                status.textContent = "Error occured";
+            };
+            navigator.geolocation.getCurrentPosition(success, error);
+        }
+
+        document.querySelector("#btn2").addEventListener("click", btn2);
+    </script>
+</body>
+</html>
